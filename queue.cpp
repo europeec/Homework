@@ -6,6 +6,7 @@
 //
 
 #include <iostream>
+
 using namespace std;
 
 class Element {
@@ -118,7 +119,7 @@ public:
         next -> previous = referenceElement;
     }
     
-private:
+protected:
     int count = 0;
 
     Element* first = NULL;
@@ -143,19 +144,51 @@ private:
 };
 
 
+class Queue: public List {
+public:
+    void deleteFirst() {
+        // если элементов нет - то ничего не делаем
+        if (count != 0) {
+            if (count == 1) {
+            // если только один элемент, нужно только удалить связь
+                first = NULL;
+                count--;
+            } else {
+                // если больше одного, то помимо удаления нужно поменять еще адрес
+                first -> next -> previous = NULL;
+                first = first -> next;
+                count--;
+            }
+        }
+    }
+};
 
-int main(){
-    List list = List();
+
+int main() {
+    Queue queue = Queue();
     
-    list.add(3);
-    list.add(2);
-    list.add(1);
-    list.add(4);
-    list.add(2);
-    
-    list.showAllValues();
+    queue.add(3);
+    queue.add(2);
+    queue.add(1);
+    queue.add(4);
+    queue.add(2);
+
+    queue.showAllValues();
     // 0: 3, 1: 2, 2: 1, 3: 4, 4: 2
     
+    queue.deleteFirst();
+    queue.showAllValues();
+    // 0: 2, 1: 1, 2: 4, 3: 2
     
-
+    cout << queue.getSize();
+    // 4
+    
+    queue.deleteFirst();
+    queue.showAllValues();
+    // 0: 1, 1: 4, 2: 2
+    
+    cout << queue.getSize();
+    // 3
+    
 }
+
