@@ -7,7 +7,17 @@
 
 import Foundation
 
-struct Graph {
-    var dicription: String
+class Graph: Identifiable, Hashable {
+    static func == (lhs: Graph, rhs: Graph) -> Bool {
+        return lhs.description == rhs.description
+    }
     
+    
+    var id = UUID()
+    var description: String
+    
+    init(description: String) {
+        self.description = description
+    }
+    // other ..
 }

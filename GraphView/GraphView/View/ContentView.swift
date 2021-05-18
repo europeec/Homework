@@ -10,28 +10,30 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ScrollView(.horizontal) {
-            GeometryReader { geometry in
-                let frame = geometry.frame(in: CoordinateSpace.global)
-                HStack {
-                    Circle()
-                        .foregroundColor(.red)
-                        .frame(width: 100)
-                    
-                    VStack(spacing: 40) {
-                        Circle()
-                            .foregroundColor(.red)
-                            .frame(width: 100, height: 100)
-                        
-                        Circle()
-                            .foregroundColor(.red)
-                            .frame(width: 100, height: 100)
-                        
-                    }.frame(idealHeight: 0)
+            HStack {
+                ForEach(data, id: \.self) { graphArray in
+                    VStack {
+                        ForEach(graphArray) {
+                            graph in
+                            GeometryReader { geometry in
+                                ZStack {
+                                    Circle()
+                                        .frame(width: 100, height: 100)
+                                        .foregroundColor(.blue)
+                                    let frame = geometry.frame(in: .global).origin
+                                    Text("\(frame.x)")
+                                }
+                                
+                                
+                            }.frame(width: 100, height: 100)
+                        }
+                    }
                 }
             }
         }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
