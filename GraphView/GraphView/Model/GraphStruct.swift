@@ -7,11 +7,11 @@
 
 import Foundation
 
-class Graph: Identifiable, Hashable {
-    static func == (lhs: Graph, rhs: Graph) -> Bool {
-        return lhs.description == rhs.description
-    }
-    
+class Graph: Identifiable {
+//    static func == (lhs: Graph, rhs: Graph) -> Bool {
+//        return lhs.description == rhs.description
+//    }
+//    
     
     var id = UUID()
     var description: String
