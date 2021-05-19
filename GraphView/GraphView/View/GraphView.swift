@@ -9,17 +9,24 @@ import SwiftUI
 
 struct GraphView: View {
     let data: Graph
-    @State var popOverPresented = false
+    @State var alertPresented = false
     @State var isDisabled = false
-    @State var text = "hello"
+    var backgroundColor = Color.white
+    
     var body: some View {
         Button(action: {
-            self.popOverPresented = true
+            self.alertPresented = true
+            self.isDisabled = true
         }, label: {
             ZStack {
                 Circle()
                     .stroke(lineWidth: 6)
-                Text(text)
+                
+                Circle()
+                    .foregroundColor(backgroundColor)
+                    .frame(width: 194, height: 194)
+                
+                Text(data.description)
                     .fontWeight(.bold)
                     .font(.title)
                     .minimumScaleFactor(0.7)
@@ -29,16 +36,14 @@ struct GraphView: View {
                     .frame(width: 150, height: 150)
                 
             }.frame(width: 200, height: 200)
-        }).popover(isPresented: $popOverPresented) {
-            Text("???")
-                .onAppear(perform: {
-                    isDisabled = true
-                })
-                .onDisappear(perform: {
+        }).alert(isPresented: $alertPresented) {
+            Alert(title: Text("Название проблемы"),
+                  message: Text("минимальное время 33\nmaximalnoe 33"),
+                  dismissButton: .cancel(Text("ok")) {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                        isDisabled = false
+                        self.isDisabled = false
                     }
-                })
+            })
         }
         .disabled(isDisabled)
         
