@@ -11,41 +11,53 @@ struct GraphView: View {
     let data: Graph
     @State var alertPresented = false
     @State var isDisabled = false
-    var backgroundColor = Color.white
+    @State var isBigCircle = false
     
     var body: some View {
-        Button(action: {
-            self.alertPresented = true
-            self.isDisabled = true
-        }, label: {
-            ZStack {
-                Circle()
-                    .stroke(lineWidth: 6)
-                
-                Circle()
-                    .foregroundColor(backgroundColor)
-                    .frame(width: 194, height: 194)
-                
-                Text(data.description)
-                    .fontWeight(.bold)
-                    .font(.title)
-                    .minimumScaleFactor(0.7)
-                    .lineLimit(3)
-                    .truncationMode(.middle)
-                    .multilineTextAlignment(.center)
-                    .frame(width: 150, height: 150)
-                
-            }.frame(width: 200, height: 200)
-        }).alert(isPresented: $alertPresented) {
+        
+        ZStack {
+            Circle()
+                .stroke(lineWidth: 6)
+                .foregroundColor(.black)
+            
+            Circle()
+                .foregroundColor(.white)
+                .frame(width: isBigCircle ? 140 : 115, height: isBigCircle ? 140 : 115)
+            
+            Text(data.description)
+                .fontWeight(isBigCircle ? .black : .bold)
+                .font(.caption)
+                .minimumScaleFactor(0.7)
+                .lineLimit(3)
+                .truncationMode(.middle)
+                .multilineTextAlignment(.center)
+                .frame(width:  isBigCircle ? 120 : 100, height:  isBigCircle ? 120 : 100)
+                .foregroundColor(.black)
+            
+        }.frame(width: 120, height: 120)
+        .onTapGesture {
+            let generator = UIImpactFeedbackGenerator(style: .medium)
+            generator.impactOccurred()
+            
+            withAnimation {
+                isBigCircle = true
+            }
+            alertPresented = true
+        }
+        .alert(isPresented: $alertPresented) {
             Alert(title: Text("Название проблемы"),
                   message: Text("минимальное время 33\nmaximalnoe 33"),
                   dismissButton: .cancel(Text("ok")) {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                        self.isDisabled = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        withAnimation {
+                            isBigCircle = false
+                            let generator = UIImpactFeedbackGenerator(style: .soft)
+                            generator.impactOccurred()
+                        }
                     }
-            })
+                  })
+            
         }
-        .disabled(isDisabled)
         
     }
 }
