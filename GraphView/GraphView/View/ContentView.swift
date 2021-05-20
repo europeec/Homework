@@ -8,14 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    let colors = [Color.red, .blue, .purple, .green, .yellow]
+    
+    let colors = [Color.green, .yellow, .orange, .red, .pink, .blue, Color(UIColor.systemIndigo.cgColor), .purple]
     var body: some View {
         TabView {
             TableView(data: data, colors: colors)
-                .tabItem { Text("Table") }
+                .tabItem {
+                    Image(systemName: "list.dash")
+                    Text("Table")
+                }
             
-            GraphViewScreen()
-                .tabItem { Text("Graphs") }
+            GraphViewScreen(colors: colors)
+                .tabItem {
+                    Image(systemName: "circle.grid.2x2")
+                    Text("Graphs")
+                }
         }
     }
 }

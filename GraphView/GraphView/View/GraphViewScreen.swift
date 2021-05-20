@@ -8,12 +8,22 @@
 import SwiftUI
 
 struct GraphViewScreen: View {
-    let colors = [Color.red, .blue, .purple, .green, .yellow]
+    let colors: [Color]
     var body: some View {
         ScrollView(.horizontal) {
             HStack (spacing: 0) {
                 ForEach(data.indices) { index in
                     ZStack {
+                        VStack{
+                            Text("\(index + 1) этап")
+                                .fontWeight(.bold)
+                                .font(.title)
+                                .foregroundColor(.secondary)
+                            
+                            Spacer()
+                        }
+                        .padding(20)
+                        
                           Rectangle()
                             .frame(width: 200)
                             .foregroundColor(colors[index])
@@ -66,6 +76,6 @@ struct GraphViewScreen: View {
 
 struct GraphViewScreen_Previews: PreviewProvider {
     static var previews: some View {
-        GraphViewScreen()
+        GraphViewScreen(colors: [Color.green, .yellow, .orange, .red, .pink, .blue, Color(UIColor.systemIndigo.cgColor), .purple])
     }
 }

@@ -10,9 +10,13 @@ import Foundation
 struct Graph: Identifiable, Hashable {
     var id = UUID()
     var description: String
+    var minTime: Int
+    var maxTime: Int
     
-    init(description: String) {
-        self.description = description
+    
+    func getTimeString() -> String {
+        return "Минимальное время: \(self.minTime) мин.\nМаксимальное время: \(self.maxTime) мин."
     }
+    
     // other ..
 }

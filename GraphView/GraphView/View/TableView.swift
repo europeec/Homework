@@ -11,22 +11,45 @@ struct TableView: View {
     let data: [[Graph]]
     let colors: [Color]
     var body: some View {
-        VStack {
-            ForEach(data.indices) { index in
-                ForEach(data[index]) { graph in
+        ScrollView(.vertical) {
+            VStack {
+                ForEach(data.indices) { index in
+                    
                     HStack {
-                        VStack(alignment: .leading) {
-                            Text(graph.description)
-                                .fontWeight(.bold)
-                                .lineLimit(2)
-                                .minimumScaleFactor(0.8)
-                                .multilineTextAlignment(.leading)
-                        }.padding()
-                        .frame(height: 100)
-                        
+                        Text("\(index + 1) этап")
+                            .fontWeight(.bold)
+                            .font(.title)
+                            .foregroundColor(.secondary)
+                         
                         Spacer()
-                    }.background(colors[index])
-
+                    }.padding([.leading, .top], 10)
+                    
+                    ForEach(data[index]) { graph in
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(graph.description)
+                                    .fontWeight(.bold)
+                                    .lineLimit(2)
+                                    .minimumScaleFactor(0.8)
+                                    .multilineTextAlignment(.leading)
+                                
+                                Spacer()
+                                    .frame(height: 5)
+                                
+                                Text(graph.getTimeString())
+                                    .font(.caption)
+                                    .lineLimit(2)
+                                
+                                Spacer()
+                            }.padding()
+                            .frame(height: 100)
+                            
+                            Spacer()
+                        }.background(colors[index].opacity(0.3))
+                        
+                    }
+                    
+                    
                 }
             }
         }

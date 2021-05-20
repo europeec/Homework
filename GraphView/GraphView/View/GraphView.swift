@@ -45,9 +45,9 @@ struct GraphView: View {
             alertPresented = true
         }
         .alert(isPresented: $alertPresented) {
-            Alert(title: Text("Название проблемы"),
-                  message: Text("минимальное время 33\nmaximalnoe 33"),
-                  dismissButton: .cancel(Text("ok")) {
+            Alert(title: Text(data.description),
+                  message: Text(data.getTimeString()),
+                  dismissButton: .cancel(Text("Ок")) {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         withAnimation {
                             isBigCircle = false
@@ -64,6 +64,6 @@ struct GraphView: View {
 
 struct GraphView_Previews: PreviewProvider {
     static var previews: some View {
-        GraphView(data: Graph(description: "Сделать домашнее задание" ))
+        GraphView(data: Graph(description: "Сделать домашнее задание", minTime: 33, maxTime: 33 ))
     }
 }
