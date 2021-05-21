@@ -9,20 +9,25 @@ import SwiftUI
 
 struct GraphView: View {
     let data: Graph
+    let color: Color
     @State var alertPresented = false
     @State var isDisabled = false
     @State var isBigCircle = false
     
+    var coordinates: CGPoint {
+        return data.getCoordinates()
+    }
+    
     var body: some View {
-        
         ZStack {
             Circle()
-                .stroke(lineWidth: 6)
-                .foregroundColor(.black)
+                .stroke(lineWidth: CGFloat(isBigCircle ? 3 : 6))
+                .foregroundColor(color)
+                .frame(width: CGFloat(isBigCircle ? 140 : 115))
             
             Circle()
                 .foregroundColor(.white)
-                .frame(width: isBigCircle ? 140 : 115, height: isBigCircle ? 140 : 115)
+                .frame(width: CGFloat(isBigCircle ? 140 : 115), height: CGFloat(isBigCircle ? 140 : 115))
             
             Text(data.description)
                 .fontWeight(isBigCircle ? .black : .bold)
@@ -31,10 +36,11 @@ struct GraphView: View {
                 .lineLimit(3)
                 .truncationMode(.middle)
                 .multilineTextAlignment(.center)
-                .frame(width:  isBigCircle ? 120 : 100, height:  isBigCircle ? 120 : 100)
+                .frame(width:  CGFloat(isBigCircle ? 120 : 100), height:  CGFloat(isBigCircle ? 120 : 100))
                 .foregroundColor(.black)
             
-        }.frame(width: 120, height: 120)
+        }.offset(x: coordinates.x, y: coordinates.y)
+        .frame(width: CGFloat(isBigCircle ? 143: 121), height: CGFloat(isBigCircle ? 143 : 121))
         .onTapGesture {
             let generator = UIImpactFeedbackGenerator(style: .medium)
             generator.impactOccurred()
@@ -64,6 +70,6 @@ struct GraphView: View {
 
 struct GraphView_Previews: PreviewProvider {
     static var previews: some View {
-        GraphView(data: Graph(description: "Сделать домашнее задание", minTime: 33, maxTime: 33 ))
+        GraphView(data: Graph(description: "Сделать домашнее задание", minTime: 33, maxTime: 33, x: 0, y: 0 ), color: .black)
     }
 }

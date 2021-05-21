@@ -8,74 +8,30 @@
 import SwiftUI
 
 struct GraphViewScreen: View {
-    let colors: [Color]
+    let edgeColor: Color
+    let graphColor: Color
+    
+    @State var ratio: CGFloat = 1.0
     var body: some View {
-        ScrollView(.horizontal) {
-            HStack (spacing: 0) {
-                ForEach(data.indices) { index in
-                    ZStack {
-                        VStack{
-                            Text("\(index + 1) этап")
-                                .fontWeight(.bold)
-                                .font(.title)
-                                .foregroundColor(.secondary)
-                            
-                            Spacer()
-                        }
-                        .padding(20)
-                        
-                          Rectangle()
-                            .frame(width: 200)
-                            .foregroundColor(colors[index])
-                            .opacity(0.3)
-                            
-                        if (index % 2 == 0) {
-                            Rectangle()
-                                .stroke(style: StrokeStyle(lineWidth: 3, dash: [35]))
-                        }
-                       
-                        
-                        ZStack {
-                            if (index == 0) {
-                                HStack {
-                                    Spacer()
-                                    Rectangle()
-                                        .frame(width: 100, height: 5)
-                                }
-                            } else if (index == data.count - 1) {
-                                HStack {
-                                    Rectangle()
-                                        .frame(width: 100, height: 5)
-                                    Spacer()
-                                }
-                            } else {
-                                Rectangle()
-                                    .frame(width: 200, height: 5)
-                            }
-                            
-                            
-                            if (data[index].count > 1) {
-                                Rectangle()
-                                    .frame(width: 5, height:  CGFloat(data[index].count) * 120)
-                            }
-                            VStack (spacing: 50) {
-                                ForEach(data[index]) {
-                                    graph in
-                                    GraphView(data: graph)
-                                    
-                                }
-                            }
-                        }.padding(.bottom, 30)
-                    }
+        ScrollView (.horizontal) {
+            GeometryReader { geometry in
+                ForEach(edges, id: \.self) { edge in
+                    Path { path in
+                        path.move(to: CGPoint(x: edge.startX, y: edge.startY))
+                        path.addLine(to: CGPoint(x: edge.stopX, y: edge.stopY))
+                    }.stroke(edgeColor, lineWidth: 5)
                 }
                 
-            }
-        }.edgesIgnoringSafeArea(.all)
+                ForEach(graphs) { graph in
+                    GraphView(data: graph, color: graphColor)
+                }
+            }.frame(width: 1000)
+        }
     }
 }
 
 struct GraphViewScreen_Previews: PreviewProvider {
     static var previews: some View {
-        GraphViewScreen(colors: [Color.green, .yellow, .orange, .red, .pink, .blue, Color(UIColor.systemIndigo.cgColor), .purple])
+        GraphViewScreen(edgeColor: .black, graphColor: .black)
     }
 }

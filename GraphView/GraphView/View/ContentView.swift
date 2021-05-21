@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    let tableViewColor = ThemeFactory.shared.getColorForTableView()
+    let edgeColor = ThemeFactory.shared.getColorForEdges()
+    let graphsColor = ThemeFactory.shared.getColorForGraphs()
     
-    let colors = [Color.green, .yellow, .orange, .red, .pink, .blue, Color(UIColor.systemIndigo.cgColor), .purple]
     var body: some View {
         TabView {
-            TableView(data: data, colors: colors)
+            TableView(data: graphs, colors: tableViewColor)
                 .tabItem {
                     Image(systemName: "list.dash")
                     Text("Table")
                 }
-            
-            GraphViewScreen(colors: colors)
+
+            GraphViewScreen(edgeColor: edgeColor, graphColor: graphsColor)
                 .tabItem {
                     Image(systemName: "circle.grid.2x2")
                     Text("Graphs")

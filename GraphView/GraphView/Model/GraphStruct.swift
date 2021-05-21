@@ -6,17 +6,32 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Graph: Identifiable, Hashable {
-    var id = UUID()
+    
     var description: String
-    var minTime: Int
-    var maxTime: Int
+
+    var id = UUID()
+    private var minTime: Int
+    private var maxTime: Int
     
+    private var x: Int
+    private var y: Int
     
-    func getTimeString() -> String {
+    public init(description: String, minTime: Int, maxTime: Int, x: Int, y: Int) {
+        self.description = description
+        self.minTime = minTime
+        self.maxTime = maxTime
+        self.x = x
+        self.y = y
+    }
+    
+    public func getTimeString() -> String {
         return "Минимальное время: \(self.minTime) мин.\nМаксимальное время: \(self.maxTime) мин."
     }
     
-    // other ..
+    public func getCoordinates() -> CGPoint {
+        return .init(x: self.x, y: self.y)
+    }
 }

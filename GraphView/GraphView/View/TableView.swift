@@ -8,57 +8,36 @@
 import SwiftUI
 
 struct TableView: View {
-    let data: [[Graph]]
+    let data: [Graph]
     let colors: [Color]
+    
     var body: some View {
-        ScrollView(.vertical) {
-            VStack {
-                ForEach(data.indices) { index in
-                    
-                    HStack {
-                        Text("\(index + 1) этап")
-                            .fontWeight(.bold)
+        List {
+            ForEach(data.indices) { index in
+                HStack {
+                    VStack (alignment: .leading) {
+                        Text(data[index].description)
                             .font(.title)
-                            .foregroundColor(.secondary)
-                         
-                        Spacer()
-                    }.padding([.leading, .top], 10)
-                    
-                    ForEach(data[index]) { graph in
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text(graph.description)
-                                    .fontWeight(.bold)
-                                    .lineLimit(2)
-                                    .minimumScaleFactor(0.8)
-                                    .multilineTextAlignment(.leading)
-                                
-                                Spacer()
-                                    .frame(height: 5)
-                                
-                                Text(graph.getTimeString())
-                                    .font(.caption)
-                                    .lineLimit(2)
-                                
-                                Spacer()
-                            }.padding()
-                            .frame(height: 100)
-                            
-                            Spacer()
-                        }.background(colors[index].opacity(0.3))
+                            .fontWeight(.bold)
                         
-                    }
+                        Spacer()
+                            .frame(height: 5)
+                        
+                        Text(data[index].getTimeString())
+                    }.padding()
                     
-                    
-                }
+                    Spacer()
+                }.background(colors[index])
+                .cornerRadius(13)
             }
-        }
+        }.padding([.leading, .top], 10)
     }
 }
 
 
+
 struct TableView_Previews: PreviewProvider {
     static var previews: some View {
-        TableView(data: data, colors: [Color.red, .blue, .purple, .green, .yellow])
+        TableView(data: graphs, colors: [Color.red, .blue, .purple, .green, .yellow])
     }
 }

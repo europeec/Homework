@@ -16,10 +16,10 @@
 		F05C0F29265454D700078F2A /* GraphStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C0F28265454D700078F2A /* GraphStruct.swift */; };
 		F080BAB726565BA20010869F /* GraphViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080BAB626565BA20010869F /* GraphViewScreen.swift */; };
 		F080BAB9265661850010869F /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080BAB8265661850010869F /* TableView.swift */; };
-		F0878772265511E100F3C095 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0878771265511E100F3C095 /* DetailView.swift */; };
 		F0D4D25B2654564700FF466A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4D25A2654564700FF466A /* Data.swift */; };
 		F0D4D2602654603800FF466A /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4D25F2654603800FF466A /* GraphView.swift */; };
-		F0D4D2632654FBAF00FF466A /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4D2622654FBAF00FF466A /* LineView.swift */; };
+		F0F712A726581AC6000E2723 /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F712A626581AC6000E2723 /* Edge.swift */; };
+		F0F712A926583AFC000E2723 /* ThemeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F712A826583AFC000E2723 /* ThemeFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,10 +34,10 @@
 		F05C0F28265454D700078F2A /* GraphStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphStruct.swift; sourceTree = "<group>"; };
 		F080BAB626565BA20010869F /* GraphViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewScreen.swift; sourceTree = "<group>"; };
 		F080BAB8265661850010869F /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
-		F0878771265511E100F3C095 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		F0D4D25A2654564700FF466A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		F0D4D25F2654603800FF466A /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
-		F0D4D2622654FBAF00FF466A /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		F0F712A626581AC6000E2723 /* Edge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edge.swift; sourceTree = "<group>"; };
+		F0F712A826583AFC000E2723 /* ThemeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +94,9 @@
 			isa = PBXGroup;
 			children = (
 				F05C0F28265454D700078F2A /* GraphStruct.swift */,
+				F0F712A826583AFC000E2723 /* ThemeFactory.swift */,
 				F0D4D25A2654564700FF466A /* Data.swift */,
+				F0F712A626581AC6000E2723 /* Edge.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -104,8 +106,6 @@
 			children = (
 				F05C0F152654508F00078F2A /* ContentView.swift */,
 				F0D4D25F2654603800FF466A /* GraphView.swift */,
-				F0D4D2622654FBAF00FF466A /* LineView.swift */,
-				F0878771265511E100F3C095 /* DetailView.swift */,
 				F080BAB8265661850010869F /* TableView.swift */,
 				F080BAB626565BA20010869F /* GraphViewScreen.swift */,
 			);
@@ -184,13 +184,13 @@
 			files = (
 				F05C0F122654508F00078F2A /* AppDelegate.swift in Sources */,
 				F080BAB9265661850010869F /* TableView.swift in Sources */,
-				F0878772265511E100F3C095 /* DetailView.swift in Sources */,
 				F0D4D25B2654564700FF466A /* Data.swift in Sources */,
 				F05C0F142654508F00078F2A /* SceneDelegate.swift in Sources */,
+				F0F712A726581AC6000E2723 /* Edge.swift in Sources */,
 				F05C0F162654508F00078F2A /* ContentView.swift in Sources */,
 				F05C0F29265454D700078F2A /* GraphStruct.swift in Sources */,
-				F0D4D2632654FBAF00FF466A /* LineView.swift in Sources */,
 				F0D4D2602654603800FF466A /* GraphView.swift in Sources */,
+				F0F712A926583AFC000E2723 /* ThemeFactory.swift in Sources */,
 				F080BAB726565BA20010869F /* GraphViewScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
