@@ -8,25 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
-    let tableViewColor = ThemeFactory.shared.getColorForTableView()
-    let edgeColor = ThemeFactory.shared.getColorForEdges()
-    let graphsColor = ThemeFactory.shared.getColorForGraphs()
-    
     var body: some View {
         TabView {
-            TableView(data: graphs, colors: tableViewColor)
+            TableView(data: graphs, colors: ThemeFactory.shared.getColorForTableView())
                 .tabItem {
                     Image(systemName: "list.dash")
                     Text("Table")
                 }
 
-            GraphViewScreen(edgeColor: edgeColor, graphColor: graphsColor)
+            GraphViewScreen(edgeColor: ThemeFactory.shared.getColorForEdges(),
+                graphColor: ThemeFactory.shared.getColorForGraphs()
+            )
                 .tabItem {
                     Image(systemName: "circle.grid.2x2")
                     Text("Graphs")
                 }
-            
-//            TODO: SettingView()
+            SettingsView()
+                .tabItem {
+                    Text("Settings")
+                }
         }
     }
 }
