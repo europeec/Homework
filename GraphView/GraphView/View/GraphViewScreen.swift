@@ -25,7 +25,7 @@ struct GraphViewScreen: View {
                 ForEach(graphs) { graph in
                     GraphView(data: graph, color: graphColor)
                 }
-            }.frame(width: 1000)
+            }.frame(width: 750)
         }
     }
 }

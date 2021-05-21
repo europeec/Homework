@@ -25,6 +25,8 @@ struct ContentView: View {
                     Image(systemName: "circle.grid.2x2")
                     Text("Graphs")
                 }
+            
+//            TODO: SettingView()
         }
     }
 }
