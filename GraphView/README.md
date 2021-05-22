@@ -30,7 +30,7 @@ generator.impactOccurred()
 <img src="gifs/secondTableView.GIF" alt="Table View Gif" width="310" height="551">
 
 ### ScrollView
-<img src="gifs/seoncdScrollView.GIF" alt="Scroll View Gif" width="310" height="551">
+<img src="gifs/secondScrollView.GIF" alt="Scroll View Gif" width="310" height="551">
 
 ### Tap Animation
 <img src="gifs/secondTapAnimation.GIF" alt="Tap Animation Gif" width="310" height="551">
