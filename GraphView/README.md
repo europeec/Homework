@@ -1,4 +1,11 @@
 
-![тут гиф](./gifs/scrollView.GIF)
+#Первая версия приложения 
 
-<img src="https://i.ibb.co/FHdqP54/2021-05-21-21-21-30-0000.gif" alt="2021-05-21-21-21-30-0000" border="0"></a>
+###ScrollView
+<img src="gifs/scrollView.GIF" alt="Scroll View Gif" width="310" height="551">
+
+###TableView
+<img src="gifs/tableView.GIF" alt="Table View Gif" width="310" height="551">
+
+###Tap Animation
+<img src="gifs/tapAnimation.GIF" alt="Tap Animation Gif" width="310" height="551">
