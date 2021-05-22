@@ -21,6 +21,7 @@ generator.impactOccurred()
 # Вторая версия приложения 
 ### сделано: 
 * `ThemeFactory` - для выбора темы 
+* кастомный `ToggleStyle`
 * Переделан `GraphViewScreen` 
 * `TableView` также переделан 
 * убран `HeaderView`, т.к не используется 
