@@ -13,9 +13,20 @@ enum Theme {
 }
 
 struct ThemeFactory {
+
+    static var shared = ThemeFactory()
+    
+    private let key = "isColorful"
+    private var isColorful: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: key)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: key)
+        }
+    }
+    
     private var theme: Theme {
-        // если значение еще не установлено -> возвращает false (поэтому isColorful, а не classic)
-        let isColorful = UserDefaults.standard.bool(forKey: "isColorful")
         return isColorful ? .colorful : .classic
     }
     
@@ -27,7 +38,10 @@ struct ThemeFactory {
     private var classicEdges = Color.black
     private var classicGraphs = Color.black
     
-    static let shared = ThemeFactory()
+    
+    public mutating func setValue(_ value: Bool) {
+        isColorful = value
+    }
     
     public func getTheme() -> Theme {
         return theme
@@ -45,4 +59,7 @@ struct ThemeFactory {
         return theme == .classic ? classicGraphs : colorfulGraphs
     }
     
+    public func getToggleBool() -> Bool {
+        return isColorful
+    }
 }

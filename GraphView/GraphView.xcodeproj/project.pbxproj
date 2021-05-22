@@ -16,6 +16,7 @@
 		F05C0F29265454D700078F2A /* GraphStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05C0F28265454D700078F2A /* GraphStruct.swift */; };
 		F080BAB726565BA20010869F /* GraphViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080BAB626565BA20010869F /* GraphViewScreen.swift */; };
 		F080BAB9265661850010869F /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080BAB8265661850010869F /* TableView.swift */; };
+		F0A179B626593D840084D989 /* CustomToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A179B526593D840084D989 /* CustomToggle.swift */; };
 		F0D4D25B2654564700FF466A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4D25A2654564700FF466A /* Data.swift */; };
 		F0D4D2602654603800FF466A /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D4D25F2654603800FF466A /* GraphView.swift */; };
 		F0F712A726581AC6000E2723 /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F712A626581AC6000E2723 /* Edge.swift */; };
@@ -35,6 +36,7 @@
 		F05C0F28265454D700078F2A /* GraphStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphStruct.swift; sourceTree = "<group>"; };
 		F080BAB626565BA20010869F /* GraphViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewScreen.swift; sourceTree = "<group>"; };
 		F080BAB8265661850010869F /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		F0A179B526593D840084D989 /* CustomToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggle.swift; sourceTree = "<group>"; };
 		F0D4D25A2654564700FF466A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		F0D4D25F2654603800FF466A /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		F0F712A626581AC6000E2723 /* Edge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edge.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				F080BAB8265661850010869F /* TableView.swift */,
 				F080BAB626565BA20010869F /* GraphViewScreen.swift */,
 				F0F712AA265853D7000E2723 /* SettingsView.swift */,
+				F0A179B526593D840084D989 /* CustomToggle.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				F05C0F142654508F00078F2A /* SceneDelegate.swift in Sources */,
 				F0F712A726581AC6000E2723 /* Edge.swift in Sources */,
 				F05C0F162654508F00078F2A /* ContentView.swift in Sources */,
+				F0A179B626593D840084D989 /* CustomToggle.swift in Sources */,
 				F05C0F29265454D700078F2A /* GraphStruct.swift in Sources */,
 				F0D4D2602654603800FF466A /* GraphView.swift in Sources */,
 				F0F712A926583AFC000E2723 /* ThemeFactory.swift in Sources */,

@@ -8,22 +8,21 @@
 import SwiftUI
 
 struct TableView: View {
-    let data: [Graph]
-    let colors: [Color]
+    @State var colors = ThemeFactory.shared.getColorForTableView()
     
     var body: some View {
         List {
-            ForEach(data.indices) { index in
+            ForEach(graphs.indices) { index in
                 HStack {
                     VStack (alignment: .leading) {
-                        Text(data[index].description)
+                        Text(graphs[index].description)
                             .font(.title)
                             .fontWeight(.bold)
                         
                         Spacer()
                             .frame(height: 5)
                         
-                        Text(data[index].getTimeString())
+                        Text(graphs[index].getTimeString())
                     }.padding()
                     
                     Spacer()
@@ -31,6 +30,10 @@ struct TableView: View {
                 .cornerRadius(13)
             }
         }.padding([.leading, .top], 10)
+        .onAppear {
+            // обновляем цветовую схему
+            colors = ThemeFactory.shared.getColorForTableView()
+        }
     }
 }
 
@@ -38,6 +41,6 @@ struct TableView: View {
 
 struct TableView_Previews: PreviewProvider {
     static var previews: some View {
-        TableView(data: graphs, colors: [Color.red, .blue, .purple, .green, .yellow])
+        TableView()
     }
 }

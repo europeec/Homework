@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct GraphViewScreen: View {
-    let edgeColor: Color
-    let graphColor: Color
+    @State var edgeColor = ThemeFactory.shared.getColorForEdges()
+    @State var graphColor = ThemeFactory.shared.getColorForGraphs()
     
     @State var ratio: CGFloat = 1.0
     var body: some View {
@@ -26,12 +26,16 @@ struct GraphViewScreen: View {
                     GraphView(data: graph, color: graphColor)
                 }
             }.frame(width: 750)
+        }.onAppear {
+            // обновляем цветовую схему
+            edgeColor = ThemeFactory.shared.getColorForEdges()
+            graphColor = ThemeFactory.shared.getColorForGraphs()
         }
     }
 }
 
 struct GraphViewScreen_Previews: PreviewProvider {
     static var previews: some View {
-        GraphViewScreen(edgeColor: .black, graphColor: .black)
+        GraphViewScreen()
     }
 }
