@@ -1,3 +1,3 @@
 Homework
 
-![](scrollView.gif)
+![scrollView gif](gifs/scrollView.gif)
