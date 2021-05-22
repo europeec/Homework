@@ -12,7 +12,7 @@
 
 При тапе анимация расширения графа, если можно так назвать + вибрация. При открытии средняя вибрация + alert показывается. При закрытии мягкая вибрация, и с задержкой 0.1 с. возвращение к изначальному размеру
 
- `Спасибо FeedbackGenerator за приятные вибрации (см. ниже)`
+вибрации при нажатии: 
 ```swift
 let generator = UIImpactFeedbackGenerator(style: UIImpactFeedbackGenerator.FeedbackStyle)
 generator.impactOccurred()
@@ -25,7 +25,6 @@ generator.impactOccurred()
 * Переделан `GraphViewScreen` 
 * `TableView` также переделан 
 * убран `HeaderView`, т.к не используется 
-* и другие мелкие доработки
 
 ### TableView
 <img src="gifs/secondTableView.GIF" alt="Table View Gif" width="310" height="551">
