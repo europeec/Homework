@@ -17,3 +17,20 @@
 let generator = UIImpactFeedbackGenerator(style: UIImpactFeedbackGenerator.FeedbackStyle)
 generator.impactOccurred()
 ```
+
+# Вторая версия приложения 
+### сделано: 
+* `ThemeFactory` - для выбора темы 
+* Переделан `GraphViewScreen` 
+* `TableView` также переделан 
+* убран `HeaderView`, т.к не используется 
+* и другие мелкие доработки
+
+### TableView
+<img src="gifs/secondTableView.GIF" alt="Table View Gif" width="310" height="551">
+
+### ScrollView
+<img src="gifs/seoncdScrollView.GIF" alt="Scroll View Gif" width="310" height="551">
+
+### Tap Animation
+<img src="gifs/secondTapAnimation.GIF" alt="Tap Animation Gif" width="310" height="551">
