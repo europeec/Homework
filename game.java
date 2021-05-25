@@ -52,12 +52,12 @@ public class Main {
 	// очистка консоли + вывод стака
 	private static void showStack() {
 	    cleanConsole();
-        System.out.println(stack);
+       	    System.out.println(stack);
 	}
 	
 	// очистка консоли
 	private static void cleanConsole() {
-        System.out.print("\033[H\033[2J");  
-        System.out.flush();  
+            System.out.print("\033[H\033[2J");  
+            System.out.flush();  
 	}
 }
