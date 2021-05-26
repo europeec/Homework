@@ -57,7 +57,7 @@
   Сделать UI для отображения графов (графы захардкодить) и TableView для отображения заданий. 
 </details>
 
-## Паттерны.
+## Паттерны
 
 ### [Factory](https://github.com/europeec/Homework/blob/main/GraphView/GraphView/Model/ThemeFactiry.swift)
 <details>
