@@ -57,6 +57,16 @@
   Сделать UI для отображения графов (графы захардкодить) и TableView для отображения заданий. 
 </details>
 
+## Паттерны.
+
+### [Factory](https://github.com/europeec/Homework/blob/main/GraphView/GraphView/Model/ThemeFactiry.swift)
+<details>
+  <summary>Требования к заданию:</summary>
+    
+  Сделать класс по шаблону Factory и интегрировать в прошлую лабораторную работу.
+</details>
+
+
 ----
 
 ##### [Вконтакте](https://vk.com/urtomorrow) 
