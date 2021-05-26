@@ -21,7 +21,6 @@ struct SettingsView: View {
                     
                 Spacer()
             }.padding()
-            // FIXME
             
             Spacer()
         }
