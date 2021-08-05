@@ -1,24 +1,24 @@
 #include <iostream>
 using namespace std;
 
-class QueueElem {
+class StackElem {
 public:
     int value = 0;
-    QueueElem* next = nullptr;
-    QueueElem* previous = nullptr;
+    StackElem* next = nullptr;
+    StackElem* previous = nullptr;
     
-    QueueElem(int value) {
+    StackElem(int value) {
         this -> value = value;
     }
 };
 
-class Queue {
+class Stack {
 public:
     int count = 0;
     
-    QueueElem* first = NULL;
-    QueueElem* current = NULL;
-    QueueElem* last = NULL;
+    StackElem* first = NULL;
+    StackElem* current = NULL;
+    StackElem* last = NULL;
     
     int counter = 0;
     
@@ -27,7 +27,7 @@ public:
     }
     
     void push(int value) {
-        QueueElem* elem = new QueueElem(value);
+        StackElem* elem = new StackElem(value);
         switch (count) {
             case 0:
                 first = elem;
@@ -48,16 +48,23 @@ public:
             if (count != 0) {
                 if (count == 1) {
                     first = nullptr;
+                    last = nullptr;
                     count--;
                 } else {
-                    first -> next -> previous = nullptr;
-                    first = first -> next;
+                    last -> previous  -> next = nullptr;
+                    last = last -> previous;
                     count--;
                 }
             }
         }
 
-    void show() {
+    StackElem* getElement() {
+        if (count != 0) {
+            return last;
+        }
+    }
+    
+    void showAllValues() {
         if (count != 0) {
             current = first;
             for (int i = 0; i < count; i++) {
@@ -67,37 +74,38 @@ public:
             }
         }
     }
-    
-    
 };
 
 
 
 int main(){
-    Queue queue = Queue();
+    Stack stack = Stack();
     
     for (int i = 0; i < 5; i++) {
-        queue.push(i);
+        stack.push(i);
     }
     
-    queue.show();
+    stack.showAllValues();
     // 0: 0
     // 1: 1
     // 2: 2
     // 3: 3
     // 4: 4
     
-    cout << queue.getSize() << endl;
+    cout << stack.getSize() << endl;
     // 5
     
-    queue.pop();
+    stack.pop();
     
-    queue.show();
-    // 0: 1
-    // 1: 2
-    // 2: 3
-    // 3: 4
+    stack.showAllValues();
+    // 0: 0
+    // 1: 1
+    // 2: 2
+    // 3: 3
     
-    cout << queue.getSize() << endl;
+    cout << stack.getElement() -> value << endl;
+    // 4
+    
+    cout << stack.getSize() << endl;
     // 4
 }
